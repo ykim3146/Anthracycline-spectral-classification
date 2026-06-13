@@ -9,6 +9,9 @@ This repository contains the core machine learning and feature importance pipeli
 2. Features are standardized and decomposed via Principal Component Analysis (PCA) based purely on training concentrations in a controlled buffer environment. A SVM classifier is then trained and tested. To evaluate translational viability, the pre-trained PCA space and SVM decision boundaries are directly applied to classify targets within complex synthetic clinical biofluids.
 
 ---
+## Demo Dataset
+A dummy dataset (`sample_data.xlsx`) is provided in this repository to demonstrate the code structure and verify that the pipeline executes correctly.
+---
 
 Prepare your dataset matching the structure described above.
 
