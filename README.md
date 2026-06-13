@@ -1,4 +1,7 @@
-# Anthracycline Classification & SHAP Analysis
+# Optical Spectral Fingerprinting for Anthracycline Detection
+
+This repository contains the core machine learning and feature importance pipeline for the paper:
+> **"Optical Spectral Fingerprinting Enables Sensitive Detection of Anthracycline Chemotherapeutics in Synthetic Clinical Biofluids"**
 
 ## Project Description
 This project provides a machine learning pipeline for **Anthracycline classification** using **XGBoost**. It incorporates **Bayesian Optimization** (via `scikit-optimize`) for hyperparameter tuning and leverages **SHAP (SHapley Additive exPlanations)** analysis to identify and interpret meaningful molecular features.
