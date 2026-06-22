@@ -33,7 +33,8 @@ def main(df):
     sol_col = df.columns[0]       # SampleType
     anthra_col = df.columns[1]     # Anthracycline (Target)
     conc_col = df.columns[2]       # Concentration
-    signal_cols = df.columns[3:]   # Features
+    group_col = df.columns[3]     # Replicate
+    signal_cols = df.columns[4:]   # Features
 
     # Define concentrations for training and testing
     train_concs = [0.1, 1, 10, 100]
@@ -56,6 +57,9 @@ def main(df):
 
     X_train = train_df[signal_cols].values
     y_train = train_df['target'].values
+
+    groups_train = train_df[group_col].values
+    
     X_test = test_df[signal_cols].values
     y_test = test_df['target'].values
 
@@ -89,10 +93,9 @@ def main(df):
         'max_depth': Integer(3, 10),
         'n_estimators': Integer(50, 300),
         'subsample': Real(0.6, 1.0),
-        'colsample_bytree': Real(0.6, 1.0)
     }
 
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    cv = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
 
     # Bayesian Optimization using BayesSearchCV
     opt = BayesSearchCV(
@@ -107,7 +110,7 @@ def main(df):
     )
 
     # Execute training and hyperparameter tuning
-    opt.fit(X_train_prep, y_train)
+    opt.fit(X_train_prep, y_train, groups=groups_train)
 
     # Model Evaluation
     best_model = opt.best_estimator_
