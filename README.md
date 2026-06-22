@@ -13,13 +13,9 @@ This repository contains the core machine learning and feature importance pipeli
 A dummy dataset (`sample_data.xlsx`) is provided in this repository to demonstrate the code structure and verify that the pipeline executes correctly.
 
 ---
-Prepare your dataset matching the structure described above.
 
-Column Index,Column Name (Example),Description
-SampleType,"Type of solution (e.g., must include 'Buffer' for filtering)": df.columns[0]
-Anthracycline : df.columns[1]
-Concentration : df.columns[2]
-Spectral Features: df.columns[3:]
+## Dataset
+A dataset (`Anthracycline_dataset.xlsx`) is provided to verify that the data processing and analysis pipeline executes correctly. 
 
 ## Prerequisites
 To run this code, please ensure you have the following Python libraries installed:
